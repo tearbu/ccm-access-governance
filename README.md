@@ -1,6 +1,6 @@
 # Access Governance Control Checks
 
-A small work sample built by Araf Abubakar, an applicant for Plaid's Security Engineer, GRC role. It shows the shape of continuous controls monitoring for access governance: take an access dataset, run a fixed set of controls against it on a schedule, and produce an evidence report that names exactly what failed and why.
+A small work sample built by Araf Abubakar, It shows the shape of continuous controls monitoring for access governance: take an access dataset, run a fixed set of controls against it on a schedule, and produce an evidence report that names exactly what failed and why.
 
 The script uses Python and access review work, two things I use in my current security work, along with control mapping to ISO/IEC 27001:2022 Annex A and SOC 2. The full write up of my background is in my application; this sample is only about the monitoring idea itself.
 
