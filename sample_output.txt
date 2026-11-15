@@ -1,0 +1,59 @@
+Access Governance Control Check
+================================
+Organization: Example Financial Services
+Dataset exported at: 2026-11-14T09:00:00Z
+Scope: 25 user records, 23 active accounts, 5 IAM policies
+
+[FAIL] AG-01: MFA enforced for all active accounts
+    Mapping: ISO/IEC 27001:2022 A.5.17, A.8.5 | SOC 2 CC6.1
+    Checked: 23 (active accounts checked); compliant: 19; failing: 4
+    Accounts without MFA:
+      - Marcus Webb (u004, Engineering): MFA not enabled
+      - Tom Becker (u008, IT): MFA not enabled
+      - Victor Santos (u014, Operations): MFA not enabled
+      - Chris Novak (u020, Engineering): MFA not enabled
+
+[FAIL] AG-02: No active accounts for terminated users
+    Mapping: ISO/IEC 27001:2022 A.5.15 | SOC 2 CC6.1
+    Checked: 25 (user records checked); compliant: 23; failing: 2
+    Terminated users with active accounts:
+      - James Okafor (u006, Operations): employment status is terminated but the account is still active
+      - Kevin Ortiz (u012, Support): employment status is terminated but the account is still active
+
+[PASS] AG-03: Dormant accounts (no login in 90+ days) identified for review
+    Mapping: ISO/IEC 27001:2022 A.5.15 | SOC 2 CC6.1
+    Checked: 23 (active accounts checked); compliant: 23; failing: 0
+    Evidence:
+      - Elena Petrova (u007): last login 120 days ago, flagged for review
+      - Ryan Doyle (u010): last login 95 days ago, flagged for review
+      - Nora Haddad (u015): last login 200 days ago, flagged for review
+      - Fatima Zahra (u021): last login 150 days ago, flagged for review
+
+[FAIL] AG-04: Privileged group membership limited and reviewed
+    Mapping: ISO/IEC 27001:2022 A.8.2 | SOC 2 CC6.3
+    Checked: 6 (privileged group memberships checked); compliant: 4; failing: 2
+    Privileged memberships without a review on record:
+      - Tom Becker (u008, IT): member of Cloud-Admins, no privileged access review on record
+      - Paul Lindqvist (u016, IT): member of IT-Admins, no privileged access review on record
+
+[FAIL] AG-05: No wildcard admin actions in IAM policies
+    Mapping: ISO/IEC 27001:2022 A.8.9 | SOC 2 CC6.6
+    Checked: 5 (IAM policies checked); compliant: 3; failing: 2
+    Wildcard grants:
+      - LegacyAdminAccess (attached to IT-Admins group): Allow on action '*'
+      - DataExportService (attached to Reporting service role): Allow on action 's3:*'
+
+[PASS] AG-06: Authentication policy meets baseline requirements
+    Mapping: ISO/IEC 27001:2022 A.5.17 | SOC 2 CC6.1
+    Checked: 4 (policy requirements checked); compliant: 4; failing: 0
+    Evidence:
+      - Minimum password length: 14
+      - Complexity required: True
+      - Account lockout threshold (attempts): 5
+      - MFA required for remote access: True
+      - Maximum password age (days): 365
+
+Summary
+--------
+Controls checked: 6; passed: 2; failed: 4
+Total failing items: 10
