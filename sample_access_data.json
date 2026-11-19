@@ -1,1 +1,506 @@
-{"authentication_policy":{"account_lockout_threshold_attempts":5,"complexity_required":true,"maximum_password_age_days":365,"mfa_required_for_remote_access":true,"minimum_password_length":14},"data_note":"Fictional sample data created for a work sample. No real people, accounts, or systems.","exported_at":"2026-11-14T09:00:00Z","iam_policies":[{"attached_to":"Finance-Analysts group","policy_name":"ReadOnlyBilling","statements":[{"actions":["billing:GetAccountSummary","billing:ListInvoices"],"effect":"Allow","resources":["arn:example:billing:::account/123456789012"]}]},{"attached_to":"IT-Admins group","policy_name":"LegacyAdminAccess","statements":[{"actions":["*"],"effect":"Allow","resources":["*"]}]},{"attached_to":"Support-Agents group","policy_name":"SupportReadAccess","statements":[{"actions":["support:DescribeCases","support:AddCommunication"],"effect":"Allow","resources":["arn:example:support:::case/*"]}]},{"attached_to":"Reporting service role","policy_name":"DataExportService","statements":[{"actions":["s3:*"],"effect":"Allow","resources":["arn:example:s3:::example-financial-exports"]}]},{"attached_to":"Build service role","policy_name":"DeployPipeline","statements":[{"actions":["codebuild:StartBuild","logs:CreateLogGroup"],"effect":"Allow","resources":["arn:example:codebuild:::project/web-app"]}]}],"organization":"Example Financial Services","privileged_groups":["IT-Admins","Cloud-Admins","DBA-Admins"],"users":[{"account_status":"active","department":"Engineering","dormant_review_flagged":false,"email":"maya.chen@example.com","employment_status":"active","groups":["Employees"],"last_login_days_ago":2,"mfa_enabled":true,"name":"Maya Chen","privileged_access_reviewed":null,"user_id":"u001"},{"account_status":"active","department":"Support","dormant_review_flagged":false,"email":"daniel.osei@example.com","employment_status":"active","groups":["Employees"],"last_login_days_ago":5,"mfa_enabled":true,"name":"Daniel Osei","privileged_access_reviewed":null,"user_id":"u002"},{"account_status":"active","department":"IT","dormant_review_flagged":false,"email":"priya.nair@example.com","employment_status":"active","groups":["Employees","IT-Admins"],"last_login_days_ago":1,"mfa_enabled":true,"name":"Priya Nair","privileged_access_reviewed":true,"user_id":"u003"},{"account_status":"active","department":"Engineering","dormant_review_flagged":false,"email":"marcus.webb@example.com","employment_status":"active","groups":["Employees"],"last_login_days_ago":3,"mfa_enabled":false,"name":"Marcus Webb","privileged_access_reviewed":null,"user_id":"u004"},{"account_status":"active","department":"Finance","dormant_review_flagged":false,"email":"sofia.marino@example.com","employment_status":"active","groups":["Employees"],"last_login_days_ago":12,"mfa_enabled":true,"name":"Sofia Marino","privileged_access_reviewed":null,"user_id":"u005"},{"account_status":"active","department":"Operations","dormant_review_flagged":false,"email":"james.okafor@example.com","employment_status":"terminated","groups":["Employees"],"last_login_days_ago":45,"mfa_enabled":true,"name":"James Okafor","privileged_access_reviewed":null,"user_id":"u006"},{"account_status":"active","department":"Finance","dormant_review_flagged":true,"email":"elena.petrova@example.com","employment_status":"active","groups":["Employees"],"last_login_days_ago":120,"mfa_enabled":true,"name":"Elena Petrova","privileged_access_reviewed":null,"user_id":"u007"},{"account_status":"active","department":"IT","dormant_review_flagged":false,"email":"tom.becker@example.com","employment_status":"active","groups":["Employees","Cloud-Admins"],"last_login_days_ago":8,"mfa_enabled":false,"name":"Tom Becker","privileged_access_reviewed":false,"user_id":"u008"},{"account_status":"active","department":"Support","dormant_review_flagged":false,"email":"aisha.bello@example.com","employment_status":"active","groups":["Employees"],"last_login_days_ago":20,"mfa_enabled":true,"name":"Aisha Bello","privileged_access_reviewed":null,"user_id":"u009"},{"account_status":"active","department":"Engineering","dormant_review_flagged":true,"email":"ryan.doyle@example.com","employment_status":"active","groups":["Employees"],"last_login_days_ago":95,"mfa_enabled":true,"name":"Ryan Doyle","privileged_access_reviewed":null,"user_id":"u010"},{"account_status":"active","department":"IT","dormant_review_flagged":false,"email":"grace.liu@example.com","employment_status":"active","groups":["Employees","DBA-Admins"],"last_login_days_ago":6,"mfa_enabled":true,"name":"Grace Liu","privileged_access_reviewed":true,"user_id":"u011"},{"account_status":"active","department":"Support","dormant_review_flagged":false,"email":"kevin.ortiz@example.com","employment_status":"terminated","groups":["Employees"],"last_login_days_ago":60,"mfa_enabled":true,"name":"Kevin Ortiz","privileged_access_reviewed":null,"user_id":"u012"},{"account_status":"active","department":"People","dormant_review_flagged":false,"email":"hannah.kim@example.com","employment_status":"active","groups":["Employees"],"last_login_days_ago":15,"mfa_enabled":true,"name":"Hannah Kim","privileged_access_reviewed":null,"user_id":"u013"},{"account_status":"active","department":"Operations","dormant_review_flagged":false,"email":"victor.santos@example.com","employment_status":"active","groups":["Employees"],"last_login_days_ago":30,"mfa_enabled":false,"name":"Victor Santos","privileged_access_reviewed":null,"user_id":"u014"},{"account_status":"active","department":"Finance","dormant_review_flagged":true,"email":"nora.haddad@example.com","employment_status":"active","groups":["Employees"],"last_login_days_ago":200,"mfa_enabled":true,"name":"Nora Haddad","privileged_access_reviewed":null,"user_id":"u015"},{"account_status":"active","department":"IT","dormant_review_flagged":false,"email":"paul.lindqvist@example.com","employment_status":"active","groups":["Employees","IT-Admins"],"last_login_days_ago":4,"mfa_enabled":true,"name":"Paul Lindqvist","privileged_access_reviewed":false,"user_id":"u016"},{"account_status":"active","department":"Engineering","dormant_review_flagged":false,"email":"zoe.carter@example.com","employment_status":"active","groups":["Employees"],"last_login_days_ago":9,"mfa_enabled":true,"name":"Zoe Carter","privileged_access_reviewed":null,"user_id":"u017"},{"account_status":"disabled","department":"Operations","dormant_review_flagged":false,"email":"ibrahim.diallo@example.com","employment_status":"active","groups":["Employees"],"last_login_days_ago":400,"mfa_enabled":false,"name":"Ibrahim Diallo","privileged_access_reviewed":null,"user_id":"u018"},{"account_status":"active","department":"Support","dormant_review_flagged":false,"email":"laura.brennan@example.com","employment_status":"active","groups":["Employees"],"last_login_days_ago":25,"mfa_enabled":true,"name":"Laura Brennan","privileged_access_reviewed":null,"user_id":"u019"},{"account_status":"active","department":"Engineering","dormant_review_flagged":false,"email":"chris.novak@example.com","employment_status":"active","groups":["Employees"],"last_login_days_ago":18,"mfa_enabled":false,"name":"Chris Novak","privileged_access_reviewed":null,"user_id":"u020"},{"account_status":"active","department":"IT","dormant_review_flagged":true,"email":"fatima.zahra@example.com","employment_status":"active","groups":["Employees","Cloud-Admins"],"last_login_days_ago":150,"mfa_enabled":true,"name":"Fatima Zahra","privileged_access_reviewed":true,"user_id":"u021"},{"account_status":"disabled","department":"Finance","dormant_review_flagged":false,"email":"george.mills@example.com","employment_status":"terminated","groups":["Employees"],"last_login_days_ago":300,"mfa_enabled":true,"name":"George Mills","privileged_access_reviewed":null,"user_id":"u022"},{"account_status":"active","department":"People","dormant_review_flagged":false,"email":"anna.kowalski@example.com","employment_status":"active","groups":["Employees"],"last_login_days_ago":7,"mfa_enabled":true,"name":"Anna Kowalski","privileged_access_reviewed":null,"user_id":"u023"},{"account_status":"active","department":"IT","dormant_review_flagged":false,"email":"sam.whitfield@example.com","employment_status":"active","groups":["Employees","DBA-Admins"],"last_login_days_ago":40,"mfa_enabled":true,"name":"Sam Whitfield","privileged_access_reviewed":true,"user_id":"u024"},{"account_status":"active","department":"Engineering","dormant_review_flagged":false,"email":"julia.ferreira@example.com","employment_status":"active","groups":["Employees"],"last_login_days_ago":11,"mfa_enabled":true,"name":"Julia Ferreira","privileged_access_reviewed":null,"user_id":"u025"}]}
+{
+  "authentication_policy": {
+    "account_lockout_threshold_attempts": 5,
+    "complexity_required": true,
+    "maximum_password_age_days": 365,
+    "mfa_required_for_remote_access": true,
+    "minimum_password_length": 14
+  },
+  "data_note": "Fictional sample data created for a work sample. No real people, accounts, or systems.",
+  "exported_at": "2026-11-14T09:00:00Z",
+  "iam_policies": [
+    {
+      "attached_to": "Finance-Analysts group",
+      "policy_name": "ReadOnlyBilling",
+      "statements": [
+        {
+          "actions": [
+            "billing:GetAccountSummary",
+            "billing:ListInvoices"
+          ],
+          "effect": "Allow",
+          "resources": [
+            "arn:example:billing:::account/123456789012"
+          ]
+        }
+      ]
+    },
+    {
+      "attached_to": "IT-Admins group",
+      "policy_name": "LegacyAdminAccess",
+      "statements": [
+        {
+          "actions": [
+            "*"
+          ],
+          "effect": "Allow",
+          "resources": [
+            "*"
+          ]
+        }
+      ]
+    },
+    {
+      "attached_to": "Support-Agents group",
+      "policy_name": "SupportReadAccess",
+      "statements": [
+        {
+          "actions": [
+            "support:DescribeCases",
+            "support:AddCommunication"
+          ],
+          "effect": "Allow",
+          "resources": [
+            "arn:example:support:::case/*"
+          ]
+        }
+      ]
+    },
+    {
+      "attached_to": "Reporting service role",
+      "policy_name": "DataExportService",
+      "statements": [
+        {
+          "actions": [
+            "s3:*"
+          ],
+          "effect": "Allow",
+          "resources": [
+            "arn:example:s3:::example-financial-exports"
+          ]
+        }
+      ]
+    },
+    {
+      "attached_to": "Build service role",
+      "policy_name": "DeployPipeline",
+      "statements": [
+        {
+          "actions": [
+            "codebuild:StartBuild",
+            "logs:CreateLogGroup"
+          ],
+          "effect": "Allow",
+          "resources": [
+            "arn:example:codebuild:::project/web-app"
+          ]
+        }
+      ]
+    }
+  ],
+  "organization": "Example Financial Services",
+  "privileged_groups": [
+    "IT-Admins",
+    "Cloud-Admins",
+    "DBA-Admins"
+  ],
+  "users": [
+    {
+      "account_status": "active",
+      "department": "Engineering",
+      "dormant_review_flagged": false,
+      "email": "maya.chen@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 2,
+      "mfa_enabled": true,
+      "name": "Maya Chen",
+      "privileged_access_reviewed": null,
+      "user_id": "u001"
+    },
+    {
+      "account_status": "active",
+      "department": "Support",
+      "dormant_review_flagged": false,
+      "email": "daniel.osei@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 5,
+      "mfa_enabled": true,
+      "name": "Daniel Osei",
+      "privileged_access_reviewed": null,
+      "user_id": "u002"
+    },
+    {
+      "account_status": "active",
+      "department": "IT",
+      "dormant_review_flagged": false,
+      "email": "priya.nair@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees",
+        "IT-Admins"
+      ],
+      "last_login_days_ago": 1,
+      "mfa_enabled": true,
+      "name": "Priya Nair",
+      "privileged_access_reviewed": true,
+      "user_id": "u003"
+    },
+    {
+      "account_status": "active",
+      "department": "Engineering",
+      "dormant_review_flagged": false,
+      "email": "marcus.webb@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 3,
+      "mfa_enabled": false,
+      "name": "Marcus Webb",
+      "privileged_access_reviewed": null,
+      "user_id": "u004"
+    },
+    {
+      "account_status": "active",
+      "department": "Finance",
+      "dormant_review_flagged": false,
+      "email": "sofia.marino@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 12,
+      "mfa_enabled": true,
+      "name": "Sofia Marino",
+      "privileged_access_reviewed": null,
+      "user_id": "u005"
+    },
+    {
+      "account_status": "active",
+      "department": "Operations",
+      "dormant_review_flagged": false,
+      "email": "james.okafor@example.com",
+      "employment_status": "terminated",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 45,
+      "mfa_enabled": true,
+      "name": "James Okafor",
+      "privileged_access_reviewed": null,
+      "user_id": "u006"
+    },
+    {
+      "account_status": "active",
+      "department": "Finance",
+      "dormant_review_flagged": true,
+      "email": "elena.petrova@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 120,
+      "mfa_enabled": true,
+      "name": "Elena Petrova",
+      "privileged_access_reviewed": null,
+      "user_id": "u007"
+    },
+    {
+      "account_status": "active",
+      "department": "IT",
+      "dormant_review_flagged": false,
+      "email": "tom.becker@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees",
+        "Cloud-Admins"
+      ],
+      "last_login_days_ago": 8,
+      "mfa_enabled": false,
+      "name": "Tom Becker",
+      "privileged_access_reviewed": false,
+      "user_id": "u008"
+    },
+    {
+      "account_status": "active",
+      "department": "Support",
+      "dormant_review_flagged": false,
+      "email": "aisha.bello@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 20,
+      "mfa_enabled": true,
+      "name": "Aisha Bello",
+      "privileged_access_reviewed": null,
+      "user_id": "u009"
+    },
+    {
+      "account_status": "active",
+      "department": "Engineering",
+      "dormant_review_flagged": true,
+      "email": "ryan.doyle@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 95,
+      "mfa_enabled": true,
+      "name": "Ryan Doyle",
+      "privileged_access_reviewed": null,
+      "user_id": "u010"
+    },
+    {
+      "account_status": "active",
+      "department": "IT",
+      "dormant_review_flagged": false,
+      "email": "grace.liu@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees",
+        "DBA-Admins"
+      ],
+      "last_login_days_ago": 6,
+      "mfa_enabled": true,
+      "name": "Grace Liu",
+      "privileged_access_reviewed": true,
+      "user_id": "u011"
+    },
+    {
+      "account_status": "active",
+      "department": "Support",
+      "dormant_review_flagged": false,
+      "email": "kevin.ortiz@example.com",
+      "employment_status": "terminated",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 60,
+      "mfa_enabled": true,
+      "name": "Kevin Ortiz",
+      "privileged_access_reviewed": null,
+      "user_id": "u012"
+    },
+    {
+      "account_status": "active",
+      "department": "People",
+      "dormant_review_flagged": false,
+      "email": "hannah.kim@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 15,
+      "mfa_enabled": true,
+      "name": "Hannah Kim",
+      "privileged_access_reviewed": null,
+      "user_id": "u013"
+    },
+    {
+      "account_status": "active",
+      "department": "Operations",
+      "dormant_review_flagged": false,
+      "email": "victor.santos@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 30,
+      "mfa_enabled": false,
+      "name": "Victor Santos",
+      "privileged_access_reviewed": null,
+      "user_id": "u014"
+    },
+    {
+      "account_status": "active",
+      "department": "Finance",
+      "dormant_review_flagged": true,
+      "email": "nora.haddad@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 200,
+      "mfa_enabled": true,
+      "name": "Nora Haddad",
+      "privileged_access_reviewed": null,
+      "user_id": "u015"
+    },
+    {
+      "account_status": "active",
+      "department": "IT",
+      "dormant_review_flagged": false,
+      "email": "paul.lindqvist@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees",
+        "IT-Admins"
+      ],
+      "last_login_days_ago": 4,
+      "mfa_enabled": true,
+      "name": "Paul Lindqvist",
+      "privileged_access_reviewed": false,
+      "user_id": "u016"
+    },
+    {
+      "account_status": "active",
+      "department": "Engineering",
+      "dormant_review_flagged": false,
+      "email": "zoe.carter@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 9,
+      "mfa_enabled": true,
+      "name": "Zoe Carter",
+      "privileged_access_reviewed": null,
+      "user_id": "u017"
+    },
+    {
+      "account_status": "disabled",
+      "department": "Operations",
+      "dormant_review_flagged": false,
+      "email": "ibrahim.diallo@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 400,
+      "mfa_enabled": false,
+      "name": "Ibrahim Diallo",
+      "privileged_access_reviewed": null,
+      "user_id": "u018"
+    },
+    {
+      "account_status": "active",
+      "department": "Support",
+      "dormant_review_flagged": false,
+      "email": "laura.brennan@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 25,
+      "mfa_enabled": true,
+      "name": "Laura Brennan",
+      "privileged_access_reviewed": null,
+      "user_id": "u019"
+    },
+    {
+      "account_status": "active",
+      "department": "Engineering",
+      "dormant_review_flagged": false,
+      "email": "chris.novak@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 18,
+      "mfa_enabled": false,
+      "name": "Chris Novak",
+      "privileged_access_reviewed": null,
+      "user_id": "u020"
+    },
+    {
+      "account_status": "active",
+      "department": "IT",
+      "dormant_review_flagged": true,
+      "email": "fatima.zahra@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees",
+        "Cloud-Admins"
+      ],
+      "last_login_days_ago": 150,
+      "mfa_enabled": true,
+      "name": "Fatima Zahra",
+      "privileged_access_reviewed": true,
+      "user_id": "u021"
+    },
+    {
+      "account_status": "disabled",
+      "department": "Finance",
+      "dormant_review_flagged": false,
+      "email": "george.mills@example.com",
+      "employment_status": "terminated",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 300,
+      "mfa_enabled": true,
+      "name": "George Mills",
+      "privileged_access_reviewed": null,
+      "user_id": "u022"
+    },
+    {
+      "account_status": "active",
+      "department": "People",
+      "dormant_review_flagged": false,
+      "email": "anna.kowalski@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 7,
+      "mfa_enabled": true,
+      "name": "Anna Kowalski",
+      "privileged_access_reviewed": null,
+      "user_id": "u023"
+    },
+    {
+      "account_status": "active",
+      "department": "IT",
+      "dormant_review_flagged": false,
+      "email": "sam.whitfield@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees",
+        "DBA-Admins"
+      ],
+      "last_login_days_ago": 40,
+      "mfa_enabled": true,
+      "name": "Sam Whitfield",
+      "privileged_access_reviewed": true,
+      "user_id": "u024"
+    },
+    {
+      "account_status": "active",
+      "department": "Engineering",
+      "dormant_review_flagged": false,
+      "email": "julia.ferreira@example.com",
+      "employment_status": "active",
+      "groups": [
+        "Employees"
+      ],
+      "last_login_days_ago": 11,
+      "mfa_enabled": true,
+      "name": "Julia Ferreira",
+      "privileged_access_reviewed": null,
+      "user_id": "u025"
+    }
+  ],
+  "service_accounts": [
+    {
+      "account_id": "svc-001",
+      "name": "etl-sync",
+      "owner": "Data Engineering",
+      "last_review_days_ago": 12
+    },
+    {
+      "account_id": "svc-002",
+      "name": "backup-agent",
+      "owner": null,
+      "last_review_days_ago": 210
+    },
+    {
+      "account_id": "svc-003",
+      "name": "ci-deploy",
+      "owner": "Platform Engineering",
+      "last_review_days_ago": 145
+    },
+    {
+      "account_id": "svc-004",
+      "name": "reporting-export",
+      "owner": "Finance Systems",
+      "last_review_days_ago": 30
+    }
+  ]
+}

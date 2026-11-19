@@ -53,7 +53,14 @@ Scope: 25 user records, 23 active accounts, 5 IAM policies
       - MFA required for remote access: True
       - Maximum password age (days): 365
 
+[FAIL] AG-07: Service accounts have a named owner and a recent review
+    Mapping: ISO/IEC 27001:2022 A.8.2 | SOC 2 CC6.1
+    Checked: 4 (service accounts checked); compliant: 2; failing: 2
+    Service accounts without an owner or a recent review:
+      - backup-agent (svc-002): no named owner; last review 210 days ago, over the 90 day limit
+      - ci-deploy (svc-003): last review 145 days ago, over the 90 day limit
+
 Summary
 --------
-Controls checked: 6; passed: 2; failed: 4
-Total failing items: 10
+Controls checked: 7; passed: 2; failed: 5
+Total failing items: 12

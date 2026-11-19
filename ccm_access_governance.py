@@ -2,7 +2,7 @@
 """Access governance control checks over a fictional access dataset.
 
 Reads a JSON export of user accounts, group memberships, IAM policies,
-and the organization authentication policy, then evaluates six access
+and the organization authentication policy, then evaluates seven access
 governance controls and prints an evidence report with a PASS or FAIL
 per control. Each control is mapped to ISO/IEC 27001:2022 Annex A and
 to SOC 2 (CC6 and CC7).
@@ -159,6 +159,33 @@ def check_wildcard_policies(policies):
     }
 
 
+
+def check_service_accounts(service_accounts):
+    """Service accounts have a named owner and a recent review."""
+    failing = []
+    for account in service_accounts:
+        reasons = []
+        if not account.get("owner"):
+            reasons.append("no named owner")
+        review_age = account.get("last_review_days_ago")
+        if review_age is None or review_age > 90:
+            reasons.append(f"last review {review_age} days ago, over the 90 day limit")
+        if reasons:
+            failing.append(
+                f"{account['name']} ({account['account_id']}): " + "; ".join(reasons)
+            )
+    return {
+        "id": "AG-07",
+        "name": "Service accounts have a named owner and a recent review",
+        "iso": "A.8.2",
+        "soc2": "CC6.1",
+        "checked_label": "service accounts checked",
+        "checked": len(service_accounts),
+        "items_label": "Service accounts without an owner or a recent review",
+        "items": failing,
+    }
+
+
 def check_auth_policy(data):
     """Authentication policy evidence exists and meets the baseline."""
     policy = data.get("authentication_policy")
@@ -273,6 +300,7 @@ def main(argv):
         check_privileged(users, data.get("privileged_groups", [])),
         check_wildcard_policies(data.get("iam_policies", [])),
         check_auth_policy(data),
+        check_service_accounts(data.get("service_accounts", [])),
     ]
     report, passed = print_report(data, results)
     print(report)
