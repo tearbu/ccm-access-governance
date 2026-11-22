@@ -36,6 +36,18 @@ python3 ccm_access_governance.py path/to/another_dataset.json
 
 The script exits with code 1 when any control fails and 0 when all controls pass, so a scheduled job can alert on a failing run.
 
+## How it works
+
+The script loads one JSON dataset with four parts: user accounts, group memberships, IAM policies, and the organisation authentication policy. Each of the seven controls is an independent check over that data. A check returns pass or fail plus the list of items that failed, and the report turns those results into the evidence report: one verdict per control, the counts behind it, and the failing items named. The exit code is the machine-readable summary of the same run, there for a scheduler rather than a reader.
+
+### Decisions
+
+- **Python standard library only.** The script imports `json`, `sys`, and `pathlib` and nothing else. Anyone with Python 3 can run it without installing anything, which matters for a sample a reviewer might open on any machine. The trade-off is plain text output instead of a polished dashboard.
+- **A static JSON file as the input, not live connectors.** A published sample cannot hold real credentials or reach a real tenant, so the dataset is a file with the same shape an export would have. Swapping the file for scheduled pulls from an identity provider is the first production step, listed below as a plan rather than presented as done.
+- **Failures planted on purpose.** Five of the seven controls fail on the sample data. A checker where everything passes demonstrates nothing, and a reviewer learns more from watching it name a terminated user's live account than from a clean run.
+- **Policy values are named constants at the top of the file.** The 90-day dormancy window, the 90-day service account review window, and the 12-character password baseline sit in one place, so the policy a run enforces can be read and changed without hunting through the checks.
+- **Each control mapped to two frameworks at once.** Every check names the ISO/IEC 27001:2022 Annex A control and the SOC 2 criterion it supports, because access governance evidence usually has to answer to both. The mapping is an aid to that conversation, not a compliance claim, as the scope notes below say.
+
 ## Results on the sample data
 
 The sample dataset describes a fictional company, Example Financial Services, with 25 user records, 23 active accounts, and 5 IAM policies. Failures were planted on purpose so the report has something to show. The full captured output is in `sample_output.txt`.
@@ -55,6 +67,12 @@ Summary: 7 controls checked, 2 passed, 5 failed, 12 failing items in total.
 * All data is fictional. The company, people, accounts, and policies were invented for this sample. Nothing here comes from any employer or real system.
 * This is a prototype. It reads one static JSON file, checks seven controls, and prints a text report. It is not connected to any identity provider or cloud account.
 * The framework references are a mapping aid, the way a GRC engineer would line a technical check up with the control it supports. Passing one of these checks on its own does not make an organization compliant with ISO 27001 or SOC 2.
+
+## Worth and lessons
+
+The useful thing here is small on purpose: the whole pattern, dataset in, controls checked, evidence out, fits in one standard library file that a reviewer can read in a few minutes. Building it surfaced the part of controls monitoring that tooling cannot settle. Every check forced a policy question into the open first: what counts as dormant, who should own a service account, how recent a review has to be. A control that cannot be expressed as a question over data you actually have is not yet a control, and writing the check is how you find that out.
+
+The limits in the scope notes above are real ones. The dataset is fictional and static, the checker is not connected to any identity provider or cloud account, and it demonstrates a pattern rather than running a monitoring programme. Passing these checks would not make any organisation compliant with ISO 27001 or SOC 2.
 
 ## How this would extend in production
 
